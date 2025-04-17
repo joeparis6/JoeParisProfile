@@ -1,15 +1,10 @@
 // components/LogoMarquee.tsx
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
-const logos = [
-  "/next.svg",
-  "/globe.svg",
-  "/vercel.svg",
-  "/window.svg",
-];
+const logos = ['/next.svg', '/globe.svg', '/vercel.svg', '/window.svg'];
 
 export default function LogoMarquee() {
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -18,17 +13,17 @@ export default function LogoMarquee() {
     const marquee = marqueeRef.current;
     if (marquee) {
       const scrollWidth = marquee.scrollWidth;
-      marquee.style.setProperty("--duration", `${scrollWidth / 50}s`);
+      marquee.style.setProperty('--duration', `${scrollWidth / 50}s`);
     }
   }, []);
 
   return (
-    <div className="overflow-hidden relative w-full py-4">
+    <div className="relative w-full overflow-hidden py-4">
       <div
         ref={marqueeRef}
-        className="flex animate-marquee gap-x-10 w-max"
+        className="animate-marquee flex w-max gap-x-10"
         style={{
-          animationDuration: "var(--duration)",
+          animationDuration: 'var(--duration)',
         }}
       >
         {[...logos, ...logos].map((src, idx) => (
@@ -38,7 +33,7 @@ export default function LogoMarquee() {
               alt={`logo-${idx}`}
               width={136}
               height={101}
-              className="w-[136px] h-[101px] object-contain"
+              className="h-[101px] w-[136px] object-contain"
             />
           </div>
         ))}
