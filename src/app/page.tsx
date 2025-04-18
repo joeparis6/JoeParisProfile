@@ -32,7 +32,7 @@ export default function Home() {
           <PageHeader title="Skills" />
           <LogoMarquee />
         </section>
-        <section className="flex h-screen snap-start items-center justify-center bg-gray-400 text-white">
+        <section className="h-screen snap-start text-white">
           <PageHeader title="About Me" />
         </section>
       </main>
