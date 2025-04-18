@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <>
       <main className="h-screen snap-y snap-mandatory overflow-y-scroll">
-        <></><></>
         <section className="flex h-screen snap-start items-center justify-center bg-black text-white">
           <h1>Joe Paris</h1>
           <h2>Software Engineer</h2>
