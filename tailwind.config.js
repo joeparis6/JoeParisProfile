@@ -14,7 +14,7 @@ module.exports = {
         },
       },
       animation: {
-        marquee: 'marquee linear infinite',
+        marquee: 'marquee 10s linear infinite',
       },
     },
   },

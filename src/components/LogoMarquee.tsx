@@ -2,28 +2,35 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const logos = ['/next.svg', '/globe.svg', '/vercel.svg', '/window.svg'];
+const logos = [
+  '/next.svg',
+  '/globe.svg',
+  '/vercel.svg',
+  '/window.svg',
+  '/window.svg',
+  '/window.svg',
+];
 
 export default function LogoMarquee() {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const marquee = marqueeRef.current;
-    if (marquee) {
-      const scrollWidth = marquee.scrollWidth;
-      marquee.style.setProperty('--duration', `${scrollWidth / 50}s`);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const marquee = marqueeRef.current;
+  //   if (marquee) {
+  //     const scrollWidth = marquee.scrollWidth;
+  //     marquee.style.setProperty('--duration', `${scrollWidth / 50}s`);
+  //   }
+  // }, []);
 
   return (
-    <div className="relative w-full overflow-hidden py-4">
+    <div className="relative w-full overflow-hidden border border-gray-300 py-4">
       <div
         ref={marqueeRef}
-        className="animate-marquee flex w-max gap-x-10"
+        className="animate-marquee flex min-w-[200%] gap-x-10"
         style={{
-          animationDuration: 'var(--duration)',
+          animationDuration: `${10}s`,
         }}
       >
         {[...logos, ...logos].map((src, idx) => (
