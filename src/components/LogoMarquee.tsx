@@ -1,49 +1,54 @@
-// components/LogoMarquee.tsx
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const logos = [
-  '/next.svg',
-  '/globe.svg',
-  '/vercel.svg',
-  '/window.svg',
-  '/window.svg',
-  '/window.svg',
+  '/svgs/javascript.svg',
+  '/svgs/typescript.svg',
+  '/svgs/react.svg',
+  '/svgs/nextjs.svg',
+  '/svgs/tailwindcss.svg',
+  '/svgs/nodejs.svg',
+  '/svgs/nestjs.svg',
+  '/svgs/aws.svg',
+  '/svgs/postgresql.svg',
+  '/svgs/python.svg',
+  '/svgs/mui.svg',
+  '/svgs/figma.svg',
 ];
 
 export default function LogoMarquee() {
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const [duration, setDuration] = useState(30); // default
 
-  // useEffect(() => {
-  //   const marquee = marqueeRef.current;
-  //   if (marquee) {
-  //     const scrollWidth = marquee.scrollWidth;
-  //     marquee.style.setProperty('--duration', `${scrollWidth / 50}s`);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (marqueeRef.current) {
+      console.log('marqueeRef.current', marqueeRef.current);
+      const totalWidth = marqueeRef.current.scrollWidth;
+      const speed = 50; // pixels per second (adjust this value for faster/slower movement)
+      const newDuration = Math.round(totalWidth / speed);
+      console.log('newDuration', newDuration);
+      setDuration(newDuration);
+    }
+  }, []);
 
   return (
-    <div className="relative w-full overflow-hidden border border-gray-300 py-4">
-      <div
-        ref={marqueeRef}
-        className="animate-marquee flex min-w-[200%] gap-x-10"
-        style={{
-          animationDuration: `${10}s`,
-        }}
-      >
-        {[...logos, ...logos].map((src, idx) => (
-          <div key={idx} className="shrink-0">
-            <Image
-              src={src}
-              alt={`logo-${idx}`}
-              width={136}
-              height={101}
-              className="h-[101px] w-[136px] object-contain"
-            />
-          </div>
-        ))}
+    <div className="flex items-center justify-center">
+      <div className="w-4/5 overflow-hidden border bg-gray-300 py-4">
+        <div ref={marqueeRef} className={`flex animate-[marquee_30s_linear_infinite] gap-x-10`}>
+          {[...logos, ...logos].map((src, idx) => (
+            <div key={`${src}-${idx}`}>
+              <Image
+                src={src}
+                alt={`logo-${idx}`}
+                width={136}
+                height={101}
+                className="h-[101px] w-[136px] object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
