@@ -35,8 +35,8 @@ export default function LogoMarquee() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="w-4/5 overflow-hidden border bg-gray-300 py-4">
-        <div ref={marqueeRef} className={`flex animate-[marquee_30s_linear_infinite] gap-x-10`}>
+      <div className="w-5/6 overflow-hidden border bg-gray-300 py-4">
+        <div ref={marqueeRef} className={`flex animate-[marquee_30s_linear_infinite]`}>
           {[...logos, ...logos].map((src, idx) => (
             <div key={`${src}-${idx}`}>
               <Image

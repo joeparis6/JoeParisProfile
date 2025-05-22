@@ -2,20 +2,31 @@ import LogoMarquee from '@/components/LogoMarquee';
 import PageHeader from '@/components/text/PageHeader';
 import Image from 'next/image';
 import Contact from '@/components/Contact';
+import Employer from '@/components/Employer';
 
 export default function Home() {
   return (
     <>
+      <header className="fixed top-2 right-2 z-10 text-white">
+        <div className="flex gap-[15px]">
+          <a href="#about">
+            <button className="cursor-pointer">About Me</button>
+          </a>
+          <a href="#experience">
+            <button className="cursor-pointer">Experience</button>
+          </a>
+          <a href="#skills">
+            <button className="cursor-pointer">Skills</button>
+          </a>
+          <a href="#education">
+            <button className="cursor-pointer">Education</button>
+          </a>
+        </div>
+      </header>
       <main className="h-screen snap-y snap-mandatory overflow-y-scroll bg-gray-800">
         <section className="h-screen snap-start text-white">
           <PageHeader title="Joe Paris" />
           <h2>Software Engineer</h2>
-          <div className="flex gap-[15px]">
-            <button>About me</button>
-            <button>Experience</button>
-            <button>Skills</button>
-            <button>Education</button>
-          </div>
 
           <Image
             className="dark:invert"
@@ -26,51 +37,60 @@ export default function Home() {
             priority
           />
         </section>
-        <section className="h-screen snap-start text-white">
+        <section id="experience" className="h-screen snap-start text-white">
           <PageHeader title="Experience" />
-          <div className="Resume-item">
-            <ul>
-              <li>Full Stack Software Engineer @ Lion Energy January 2023 - Present</li>
-              <ul>
-                <li>Developed a web application using React, NestJS, and PostgreSQL</li>
-                <li>
-                  Optimized deployment by building an automated CI/CD pipeline using AWS services
-                  such as CodePipeline, ECR, and AppRunner
-                </li>
-                <li>
-                  Built an OAuth 2.0 Machine-to-Machine authentication system with Amazon Cognito
-                </li>
-                <li>
-                  Facilitated communication with thousands of Energy Storage Systems via a suite of
-                  cloud services (Iot Core, S3, TimeStream, IAM)
-                </li>
-              </ul>
-
-              <li>Software QA Intern @ Legrand North America May 2022 - November 2022</li>
-              <ul>
-                <li>
-                  Built a cross-platform test driver in Java for a smart home automation mobile app
-                </li>
-                <li>Authored hundreds of unit tests using JUnit and Appium frameworks</li>
-                <li>
-                  Performed manual testing of software and hardware for home automation systems
-                </li>
-              </ul>
+          <Employer
+            employerName="Lion Energy"
+            position="Full Stack Software Engineer"
+            dates="January 2023 - Present"
+            location="American Fork, UT"
+          >
+            <ul className="list-disc">
+              <li>Developed a web application using React, NestJS, and PostgreSQL</li>
               <li>
-                Student Web Developer @ Center for Teaching and Learning April 2021 - November 2022
+                Optimized deployment by building an automated CI/CD pipeline using AWS services such
+                as CodePipeline, ECR, and AppRunner
               </li>
-              <ul>
-                <li>
-                  Designed a project tracking application, enabling teams to monitor progress and
-                  streamline the peer review process
-                </li>
-                <li>Architected and implemented relational database schemas</li>
-                <li>Collaborated with cross-functional teams to enhance user experience</li>
-              </ul>
+              <li>
+                Built an OAuth 2.0 Machine-to-Machine authentication system with Amazon Cognito
+              </li>
+              <li>
+                Facilitated communication with thousands of Energy Storage Systems via a suite of
+                cloud services (Iot Core, S3, TimeStream, IAM)
+              </li>
             </ul>
-          </div>
+          </Employer>
+          <Employer
+            employerName="Legrand"
+            position="Software QA Intern"
+            dates="May 2022 - September 2022"
+            location="Pleasant Grove, UT"
+          >
+            <ul className="list-disc">
+              <li>
+                Built a cross-platform test driver in Java for a smart home automation mobile app
+              </li>
+              <li>Authored hundreds of unit tests using JUnit and Appium frameworks</li>
+              <li>Performed manual testing of software and hardware for home automation systems</li>
+            </ul>
+          </Employer>
+          <Employer
+            employerName="Center for Teaching and Learning"
+            position="Student Web Developer"
+            dates="April 2021 - November 2022"
+            location="Provo, UT"
+          >
+            <ul className="list-disc">
+              <li>
+                Designed a project tracking application, enabling teams to monitor progress and
+                streamline the peer review process
+              </li>
+              <li>Architected and implemented relational database schemas</li>
+              <li>Collaborated with cross-functional teams to enhance user experience</li>
+            </ul>
+          </Employer>
         </section>
-        <section className="h-screen snap-start text-white">
+        <section id="skills" className="h-screen snap-start text-white">
           <PageHeader title="Skills" />
           <ul>
             <li>JavaScript</li>
@@ -99,7 +119,7 @@ export default function Home() {
           </ul>
           <LogoMarquee />
         </section>
-        <section className="h-screen snap-start text-white">
+        <section id="education" className="h-screen snap-start text-white">
           <PageHeader title="Education" />
           <div>
             <h4>Education</h4>
@@ -116,7 +136,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="h-screen snap-start text-white">
+        <section id="about" className="h-screen snap-start text-white">
           <PageHeader title="About Me" />
         </section>
       </main>
