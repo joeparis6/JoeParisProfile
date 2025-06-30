@@ -35,10 +35,10 @@ export default function LogoMarquee() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="w-5/6 overflow-hidden border bg-gray-300 py-4">
+      <div className="w-5/6 overflow-hidden rounded-lg border bg-gray-300 py-4">
         <div ref={marqueeRef} className={`flex animate-[marquee_30s_linear_infinite]`}>
           {[...logos, ...logos].map((src, idx) => (
-            <div key={`${src}-${idx}`}>
+            <div key={`${src}-${idx}`} className="mx-4 shrink-0">
               <Image
                 src={src}
                 alt={`logo-${idx}`}
